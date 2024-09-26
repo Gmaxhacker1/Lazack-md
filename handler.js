@@ -8,7 +8,7 @@ import fetch from 'node-fetch'
 import Pino from 'pino'
 
 /**
- * @type {import("@shizodevs/shizoweb")}
+ * @type {import("@whiskeysockets/baileys")}
  */
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms =>
@@ -22,10 +22,10 @@ const delay = ms =>
 
 /** 
  * Handle messages upsert
- * @param {import("@shizodevs/shizoweb").BaileysEventMap<unknown>["messages.upsert"]} groupsUpdate
+ * @param {import("@whiskeysockets/baileys").BaileysEventMap<unknown>["messages.upsert"]} groupsUpdate
  */
 const { getAggregateVotesInPollMessage, makeInMemoryStore } = await (
-  await import('@shizodevs/shizoweb')
+  await import('@whiskeysockets/baileys')
 ).default
 const store = makeInMemoryStore({
   logger: Pino().child({
@@ -517,7 +517,7 @@ export async function handler(chatUpdate) {
 
 /**
  * Handle groups participants update
- * @param {import("@shizodevs/shizoweb").BaileysEventMap<unknown>["group-participants.update"]} groupsUpdate
+ * @param {import("@whiskeysockets/baileys").BaileysEventMap<unknown>["group-participants.update"]} groupsUpdate
  */
 export async function participantsUpdate({ id, participants, action }) {
   if (opts['self'] || this.isInit) return
@@ -574,10 +574,10 @@ export async function participantsUpdate({ id, participants, action }) {
                 contextInfo: {
                   mentionedJid: [user],
                   externalAdReply: {
-                    title: 'LAZACK MD V2',
+                    title: 'ᴏʀᴇᴏ ᴛʜᴇ ʙɪsᴄᴜɪᴛ ʙᴏᴛ',
                     body: 'welcome to Group',
                     thumbnailUrl: welcomeApiUrl,
-                    sourceUrl: 'https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9',
+                    sourceUrl: 'https://chat.whatsapp.com/DWqdPuQ0yFkKyf1SzZ0k9Y',
                     mediaType: 1,
                     renderLargerThumbnail: true,
                   },
@@ -631,10 +631,10 @@ export async function participantsUpdate({ id, participants, action }) {
                 contextInfo: {
                   mentionedJid: [user],
                   externalAdReply: {
-                    title: 'LAZACK MD V2',
+                    title: 'ᴏʀᴇᴏ ᴛʜᴇ ʙɪsᴄᴜɪᴛ ʙᴏᴛ',
                     body: 'Goodbye from  Group',
                     thumbnailUrl: leaveApiUrl,
-                    sourceUrl: 'https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9',
+                    sourceUrl: 'https://chat.whatsapp.com/DWqdPuQ0yFkKyf1SzZ0k9Y',
                     mediaType: 1,
                     renderLargerThumbnail: true,
                   },
@@ -682,7 +682,7 @@ export async function participantsUpdate({ id, participants, action }) {
 
 /**
  * Handle groups update
- * @param {import("@shizodevs/shizoweb").BaileysEventMap<unknown>["groups.update"]} groupsUpdate
+ * @param {import("@whiskeysockets/baileys").BaileysEventMap<unknown>["groups.update"]} groupsUpdate
  */
 export async function groupsUpdate(groupsUpdate) {
   if (opts['self']) return

@@ -1,18 +1,10 @@
-FROM node:lts-buster
+FROM quay.io/gurusensei/gurubhay:latest
 
-RUN apt-get update && \
-  apt-get install -y \
-  ffmpeg \
-  imagemagick \
-  webp && \
-  apt-get upgrade -y && \
-  rm -rf /var/lib/apt/lists/*
+RUN git clone https://github.com/Lazack28/Lazack-Device /root/lazack
 
-COPY package.json .
+WORKDIR /root/lazack/
 
-RUN npm install && npm install qrcode-terminal
-
-COPY . .
+RUN npm install --platform=linuxmusl
 
 EXPOSE 5000
 
